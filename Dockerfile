@@ -1,11 +1,14 @@
-FROM node:18
-ENV PORT 8080
-EXPOSE 8080
+FROM node:18-alpine3.15
 
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package.json .
-RUN npm install
+
+# Install python/pip
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+
 COPY . .
 
-CMD ["npm", "start"]
+RUN npm install
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
