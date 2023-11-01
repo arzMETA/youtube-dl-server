@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-youtube-dl
+  labels:
+    app: dev-youtube-dl
+  namespace: namespace-workflow-1698806962346
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev-youtube-dl
+  template:
+    metadata:
+      labels:
+        app: dev-youtube-dl
+    spec:
+      containers:
+        - name: dev-youtube-dl
+          image: devarzmeta.azurecr.io/image-workflow-1698806962346:latest
+          ports:
+            - containerPort: 8080
