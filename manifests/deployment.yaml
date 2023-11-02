@@ -4,7 +4,7 @@ metadata:
   name: dev-youtube-dl
   labels:
     app: dev-youtube-dl
-  namespace: namespace-workflow-1698806962346
+  namespace: namespace-workflow-1698897992635
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: dev-youtube-dl
-          image: devarzmeta.azurecr.io/image-workflow-1698806962346:latest
+          image: devarzmeta.azurecr.io/image-workflow-1698897992635:latest
           ports:
             - containerPort: 8080
