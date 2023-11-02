@@ -9,3 +9,6 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 COPY . .
 
 RUN npm install
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
